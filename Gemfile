@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'haml'
 # gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'rails-i18n'
 gem 'pry'
 gem 'devise'
 gem 'omniauth'

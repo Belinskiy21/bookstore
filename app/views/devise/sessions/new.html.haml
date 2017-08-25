@@ -1,26 +1,27 @@
-= content_for(:title, t('sign_in'))
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title= t('log_in')
-    %a.general-login-icon{href: signin_url}
-      %i.fa.fa-facebook-official= t('facebook')
+    %a.general-login-icon
+    = link_to  signin_path do
+      %i.fa.fa-facebook-official{:style => "font-size:30px"}
+      %p
     %p.general-login-text= t('or')
   = form_for(resource, as: resource_name, url: user_session_path, html: { class: 'general-form' }) do |f|
     .form-group.mb-30
       = f.label :email, t('enter_email'), class: 'control-label input-label'
-      = f.email_field :email, placeholder: t('enter_email'), autofocus: true, class: 'form-control'
+      = f.email_field :email, placeholder: 'Enter email', autofocus: true, class: 'form-control'
     .form-group.mb-30
       = f.label :password, t('password'), class: 'control-label input-label'
-      = f.password_field :password, placeholder: t('password'), class: 'form-control'
-      %a.help-block.in-gold-500{href: new_user_password_path}= t('forgot_password')
+      = f.password_field :password, placeholder: 'Password', class: 'form-control'
+      %a.help-block.in-gold-500{href: new_user_password_path} Forgot Password?
     .form-group.checkbox.text-center.mb-30
       %label.checkbox-label
         = f.check_box :remember_me, hidden: true, class: 'checkbox-input'
         %span.checkbox-icon
           %i.fa.fa-check
-        %span.checkbox-text= t('remember_me')
+        %span.checkbox-text Remember me
     .text-center
-      = f.submit t('log_in'), class: 'button btn btn-default mb-20'
+      = f.submit "Log in", class: 'btn btn-default mb-20'
   %p.general-sign-text.text-center
-    = t('dont_have_account')
-    %a.in-gold-500{href: new_user_registration_path}= t('sign_up')
+    Dont have account?
+    = link_to "Sign up", new_user_registration_path, class: 'in-gold-500'

@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{charset: "UTF-8"}
+    %meta{name: "viewport", content: "width=device-width"}
+    %link{href: "https://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet"}
+    %link{href: "../css/style.css", rel: "stylesheet"}
+    %title Bookstore
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %p.notice= notice
+    %p.alert= alert
+    - if user_signed_in?
+      = render partial: 'shared/header'
+    = yield
+    - if user_signed_in? 
+      = render partial: 'shared/footer'
+    %script{src: "https://use.fontawesome.com/67602d7308.js"}

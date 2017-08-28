@@ -2,7 +2,7 @@
   .text-center
     %h3.general-login-title= t('log_in')
     %a.general-login-icon
-    = link_to  signin_path do
+    = link_to   user_facebook_omniauth_authorize_path do
       %i.fa.fa-facebook-official{:style => "font-size:30px"}
       %p
     %p.general-login-text= t('or')

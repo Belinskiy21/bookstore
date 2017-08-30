@@ -28,13 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'haml'
 # gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'rails-i18n'
-gem 'pry'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -42,29 +40,34 @@ gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'autoprefixer-rails'
 gem 'activeadmin', github: 'activeadmin'
+gem 'kaminari'
+gem 'carrierwave', '~> 1.0'
+gem 'aasm'
+gem "mini_magick"
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'pry'
   gem 'selenium-webdriver'
   gem 'foreman'
   gem 'dotenv-rails'
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
-  end
-  gem 'factory_girl_rails'
-end
-
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'capybara', '~> 2.13'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

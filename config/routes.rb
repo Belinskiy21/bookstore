@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
 
-  get 'books/index'
 
   get 'home/index'
 
-  devise_for :users,  :controllers => { :omniauth_callbacks => "callbacks" } 
-  root 'home#index'
+  devise_for :users,  :controllers => { :omniauth_callbacks => "callbacks" }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  resources :books, only: [:index, :show]
+  resources :orders
+  resources :order_books, only: [:create, :update, :destroy]
 
 
 

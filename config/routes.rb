@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show]
   resources :orders
   resources :order_books, only: [:create, :update, :destroy]
+  resources :categories, only: [:index, :show]
 
 
 

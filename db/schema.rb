@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904112839) do
+ActiveRecord::Schema.define(version: 20170904185529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170904112839) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "category_id"
-    t.integer "author_id"
     t.text "description"
     t.integer "price"
     t.datetime "created_at", null: false
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170904112839) do
     t.string "dimensions"
     t.string "materials"
     t.string "image"
+    t.boolean "active", default: true
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 20170904112839) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "file"
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_images_on_book_id"
   end
 
   create_table "order_books", force: :cascade do |t|

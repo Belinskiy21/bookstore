@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831103149) do
+ActiveRecord::Schema.define(version: 20170904112839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_author_books_on_author_id"
+    t.index ["book_id"], name: "index_author_books_on_book_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -71,6 +73,8 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.string "year_of_publication"
     t.string "dimensions"
     t.string "materials"
+    t.string "image"
+    t.index ["category_id"], name: "index_books_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -84,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_order_books_on_book_id"
+    t.index ["order_id"], name: "index_order_books_on_order_id"
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -97,6 +103,8 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.string "creation_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -106,6 +114,8 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,4 +142,12 @@ ActiveRecord::Schema.define(version: 20170831103149) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
+  add_foreign_key "books", "categories"
+  add_foreign_key "order_books", "books"
+  add_foreign_key "order_books", "orders"
+  add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end

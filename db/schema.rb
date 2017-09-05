@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904185529) do
+ActiveRecord::Schema.define(version: 20170905094744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,13 +66,12 @@ ActiveRecord::Schema.define(version: 20170904185529) do
     t.string "title"
     t.integer "category_id"
     t.text "description"
-    t.integer "price"
+    t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "year_of_publication"
     t.string "dimensions"
     t.string "materials"
-    t.string "image"
     t.boolean "active", default: true
     t.index ["category_id"], name: "index_books_on_category_id"
   end

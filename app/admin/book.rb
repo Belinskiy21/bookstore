@@ -47,7 +47,7 @@ ActiveAdmin.register Book do
         if params[:book].key?(:images)
           params[:book][:images].each do |img|
             @model = Book.find(params[:id]).images.new
-            uploader = ImagesUploader.new(@model)
+            uploader = ImageUploader.new(@model)
             uploader.store!(img)
             @model.update!(file: uploader.url)
           end

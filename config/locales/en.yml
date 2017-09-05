@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+  sign_up: 'Sign Up'
+  or: 'Or'
+  log_in: 'Log In'
+  enter_email: 'Enter Email'
+  password: 'Password'
+  button:
+    get_started: 'Get started'
+    l_in: 'Log In'
+    forgot_password: 'Forgot Password?'

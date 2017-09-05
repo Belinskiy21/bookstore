@@ -13,7 +13,7 @@
     .form-group.mb-30
       = f.label :password, t('password'), class: 'control-label input-label'
       = f.password_field :password, placeholder: 'Password', class: 'form-control'
-      %a.help-block.in-gold-500{href: new_user_password_path} Forgot Password?
+      = link_to t('button.forgot_password'), new_user_password_path , class: 'help-block in-gold-500'
     .form-group.checkbox.text-center.mb-30
       %label.checkbox-label
         = f.check_box :remember_me, hidden: true, class: 'checkbox-input'
@@ -21,7 +21,7 @@
           %i.fa.fa-check
         %span.checkbox-text Remember me
     .text-center
-      = f.submit "Log in", class: 'btn btn-default mb-20'
+      = f.submit t('button.l_in'), class: 'btn btn-default mb-20'
   %p.general-sign-text.text-center
     Dont have account?
-    = link_to "Sign up", new_user_registration_path, class: 'in-gold-500'
+    = link_to t('sign_up'), new_user_registration_path, class: 'in-gold-500'

@@ -11,7 +11,7 @@ ActiveAdmin.register Book do
       end
       column('Category') { |book| book.category.name }
       column :title
-      column :authors
+      column('Authors') { |book| authors_name_select(book) }
       column('Description') { |book| truncate(book.description, length: 75) }
       column :price
       column '' do |book|
@@ -26,7 +26,7 @@ ActiveAdmin.register Book do
         f.input :active
         f.input :title
         f.input :authors, as: :select, collection:
-          Author.pluck(:last_name, :id), include_blank: false
+          Author.pluck(:name, :id), include_blank: false
         f.input :price
         f.input :category, as: :select, collection:
           Category.pluck(:name, :id), include_blank: false

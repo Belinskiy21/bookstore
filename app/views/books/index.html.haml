@@ -57,7 +57,7 @@
       .col-xs-6.col-sm-3
         .general-thumb-wrap
           .thumbnail.general-thumbnail
-            %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+            = image_tag img_of(book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
             .thumb-hover
               .general-thumb-link-wrap
                 %a.thumb-hover-link{href: book_path(:id)}
@@ -69,5 +69,6 @@
           %p.font-16.in-gold-500=book.price
           %span.divider-sm
           %p.lead.small=authors_name_select(book)
-  .text-center
-    %button.btn.btn-primary View More
+.text-center
+  %button.btn.btn-primary View More
+%br

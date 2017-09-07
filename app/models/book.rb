@@ -6,4 +6,5 @@ class Book < ApplicationRecord
   has_many :orders, through: :order_books
   has_many :reviews, dependent: :destroy
   has_many :images, dependent: :destroy
+  
 end

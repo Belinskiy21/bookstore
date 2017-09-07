@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all
-    @book_count = @books.count
+    @books = Book.all.page(params[:page])
+    @book_count = Book.all.count
   end
 
   def show

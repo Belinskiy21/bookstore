@@ -5,6 +5,13 @@ en:
   log_in: 'Log In'
   enter_email: 'Enter Email'
   password: 'Password'
+  description: 'Description'
+  published_at: 'Year of publication'
+  dimension: 'Dimension'
+  materials: 'Materials'
+  reviews: 'Reviews'
+  thanks_message: 'Thank you for review!'
+  smth_went_wrong: 'Something went wrong!'
 
   button:
     get_started: 'Get started'
@@ -13,3 +20,4 @@ en:
     all: 'All'
     view_more: 'View More'
     buy_now: 'Buy Now'
+    back_to_results: 'Back to results'

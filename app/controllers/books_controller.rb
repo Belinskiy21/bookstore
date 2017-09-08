@@ -6,6 +6,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find_by_id(params[:id])
+    redirect_to root_url, alert: 'No such book.' unless @book
 
   end
 

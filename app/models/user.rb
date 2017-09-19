@@ -6,6 +6,12 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews
 
+  validates_uniqueness_of :uid, unless: Proc.new { provider.nil? }, scope: :provider
+  validates_format_of :email,:with => Devise::email_regexp
+  validates :password, format: {
+    with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S{8,}\z/
+    }, unless: :skip_password_validation
+
           def self.from_omniauth(auth)
             where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
               user.provider = auth.provider

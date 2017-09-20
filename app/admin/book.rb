@@ -1,6 +1,6 @@
 ActiveAdmin.register Book do
     includes :authors, :category, :images
-    permit_params :id, :category_id, :title, :price, :description, :materials, :dimensions, :year_of_publication, :active, author_ids: []
+    permit_params :id, :category_id, :title, :price, :description, :materials, :dimensions, :year_of_publication, :active, author_ids: [], images_attributes: [:id, :file, :book_id, :_destroy]
     form partial: 'form'
 
     index do
@@ -47,7 +47,7 @@ ActiveAdmin.register Book do
         if params[:book].key?(:images)
           params[:book][:images].each do |img|
             @model = Book.find(params[:id]).images.new
-            uploader = ImageUploader.new(@model)
+            uploader = ImagesUploader.new(@model)
             uploader.store!(img)
             @model.update!(file: uploader.url)
           end

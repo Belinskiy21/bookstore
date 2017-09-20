@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906172731) do
+ActiveRecord::Schema.define(version: 20170920182515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,13 +89,16 @@ ActiveRecord::Schema.define(version: 20170906172731) do
     t.index ["book_id"], name: "index_images_on_book_id"
   end
 
-  create_table "order_books", force: :cascade do |t|
+  create_table "order_items", force: :cascade do |t|
     t.integer "order_id"
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_order_books_on_book_id"
-    t.index ["order_id"], name: "index_order_books_on_order_id"
+    t.decimal "unit_price", precision: 8, scale: 2
+    t.decimal "total_price", precision: 8, scale: 2
+    t.integer "quantity"
+    t.index ["book_id"], name: "index_order_items_on_book_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
   create_table "order_statuses", force: :cascade do |t|
@@ -151,8 +154,8 @@ ActiveRecord::Schema.define(version: 20170906172731) do
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
   add_foreign_key "books", "categories"
-  add_foreign_key "order_books", "books"
-  add_foreign_key "order_books", "orders"
+  add_foreign_key "order_items", "books"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"

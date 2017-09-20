@@ -9,26 +9,28 @@
           = image_tag img_of(@book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
         .images.clearfix
           %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+            = image_tag small_img_of(@book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
           %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+            = image_tag small_img_of(@book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
           %a.img-link{href: "#"}
-            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+            = image_tag small_img_of(@book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
     .col-sm-6
       %h1.mt-res-0= @book.title
       %p.lead.small= authors_name_select(@book)
       .row
-        .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= number_to_currency(@book.price)
-        .col-xs-5.col-md-3
-          .input-group.general-position
-            %a.input-link{href: "#"}
-              %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
-              %i.fa.fa-plus.line-height-40
-        .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position Add to Cart
+        -# = form_for @order_item, remote: true do |f|
+        -#   .col-xs-12.col-md-4
+        -#     %p.h1.in-gold-500.mt-10= number_to_currency(@book.price)
+        -#   .col-xs-5.col-md-3
+        -#     .input-group.general-position
+        -#       %a.input-link{href: "#"}
+        -#         %i.fa.fa-minus.line-height-40
+        -#       = f.text_field :quantity, value: 1, class: 'form-control quantity-input', min: 1
+        -#       %a.input-link{href: "#"}
+        -#         %i.fa.fa-plus.line-height-40
+        -#   .col-xs-7.col-md-5
+        -#     = f.hidden_field :book_id, value: @book.id
+        -#     = f.submit t('button.add_to_cart'), class: 'btn btn-default pull-right general-position', disabled: !@book.active
       .general-info-wrap.divider-lg
         %p=  t('description')
         %p.lead.small.line-height-2

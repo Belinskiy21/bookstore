@@ -46,10 +46,7 @@ ActiveAdmin.register Book do
       def update(options = {}, &block)
         if params[:book].key?(:images)
           params[:book][:images].each do |img|
-            @model = Book.find(params[:id]).images.new
-            uploader = ImagesUploader.new(@model)
-            uploader.store!(img)
-            @model.update!(file: uploader.url)
+            Image.create(book_id: params[:id], file: img)
           end
         end
 

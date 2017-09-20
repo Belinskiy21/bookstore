@@ -10,7 +10,7 @@
             = image_tag img_of(book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
             .thumb-hover
               .general-thumb-link-wrap
-                %a.thumb-hover-link{href: book_path(:id)}
+                %a.thumb-hover-link{href: book_path(book)}
                   %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
                 %a.thumb-hover-link{href: "#"}
                   %i.fa.fa-shopping-cart.thumb-icon

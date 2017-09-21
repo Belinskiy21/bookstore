@@ -5,7 +5,7 @@ module BooksHelper
   end
 
   def small_img_of(book)
-    book.images.first.file.thumb.url || default_image
+    book.images.last.file.thumb.url || default_image
   end
 
   def go_back_url

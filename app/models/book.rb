@@ -20,4 +20,17 @@ class Book < ApplicationRecord
   validates_length_of :title, maximum: 120
   validates_length_of :materials, maximum: 80
   validates_length_of :description, in: 5..2000
+
+  before_destroy :ensure_not_referenced_by_any_order_item
+
+  private
+
+  def ensure_not_referenced_by_any_order_item
+    if order_item.empty?
+      return true
+    else
+      errors.add(:base, "Order items exists!")
+      return false
+    end
+  end
 end

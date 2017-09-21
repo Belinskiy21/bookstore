@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  def show
+    #code
+  end
 
   private
 

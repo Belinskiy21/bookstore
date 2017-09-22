@@ -9,10 +9,10 @@
       %a.navbar-brand Bookstore
       %a.shop-link.pull-right.visible-xs{href: "#"}
         %span.shop-icon
-          %span.shop-quantity= current_order.quantity
+          %span.shop-quantity= order_items_quantity
     %a.shop-link.pull-right.hidden-xs{href: "#"}
       %span.shop-icon
-        %span.shop-quantity= current_order.quantity
+        %span.shop-quantity= order_items_quantity
     #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
       .visible-xs
         %button.close{type: "button", 'aria-label': "Close"}

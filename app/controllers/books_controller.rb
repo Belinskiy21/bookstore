@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.page(params[:page])
     @book_count = Book.all.count
+     @order_item = current_order.order_items.new
   end
 
   def show

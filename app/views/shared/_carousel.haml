@@ -15,7 +15,10 @@
               %p.lead= fresh_book.description
               %p.lead.small= authors_name_select(fresh_book)
               .general-align
-                = link_to t('button.by_now'), order_items_path(order_items: {quantity: 1, book_id: fresh_book.id}), { method: :post, remote: true, class: 'btn btn-primary' }
+                = form_for @order_item, remote: true do |form|
+                  = form.hidden_field :quantity, value: 1
+                  = form.hidden_field :book_id, value: fresh_book.id
+                  = form.button t('button.buy_now'), class: 'btn btn-primary'
   %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
     %span.icon-prev{'aria-hidden': "true"}
     %span.sr-only= t('page.home.carusel.prev')

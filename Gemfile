@@ -46,6 +46,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'aasm'
 gem "mini_magick"
 gem 'jquery-rails', '~> 4.3.1'
+gem 'draper'
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

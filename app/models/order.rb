@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :books, through: :order_items
   belongs_to :user, optional: true
+  has_one :coupon, dependent: :destroy
   include AASM
 
   aasm :column => 'order_state',whiny_transitions: false do
@@ -29,10 +30,23 @@ class Order < ApplicationRecord
   end
 
   def subtotal
-    order_items.collect { |item| item.valid? ? (item.quantity * item.unit_price) : 0}.sum
+    order_items.collect { |item| item.valid? ? (item.quantity * item.book.price ) : 0}.sum
   end
 
   def empty?
     order_items.empty?
+  end
+
+  def total
+    subtotal - discount_sum + shipping_price
+  end
+
+  def discount_sum
+    coupon.nil? ? 0 : subtotal * coupon.discount
+  end
+
+  def shipping_price
+    # shipping_method.nil? ? 0 : shipping_method.price
+    10
   end
 end

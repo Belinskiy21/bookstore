@@ -3,10 +3,14 @@
   %i.fa.fa-angle-down.dropdown-icon.pull-right
 %ul.dropdown-menu
   %li
-    %a{href: "#"} Newest first
+    = link_to t('newest_first'), books_path
   %li
-    %a{href: "#"} Popular first
+    = link_to t('popular_first'), books_path
   %li
-    %a{href: "#"} Price: Low to hight
+    = link_to t('price_descending'), books_path
   %li
-    %a{href: "#"} Price: Low to hight
+    = link_to t('price_ascending'), books_path
+  %li
+    = link_to t('title_descending'), books_path
+  %li
+    = link_to t('title_ascending'), books_path

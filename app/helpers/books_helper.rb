@@ -1,10 +1,10 @@
 module BooksHelper
 
-  def img_of(book)
+  def img_of(book, options = {})
     book.images.first.try(:file) || default_image
   end
 
-  def small_img_of(book)
+  def small_img_of(book, options = {})
     book.images.last.file.thumb.url || default_image
   end
 

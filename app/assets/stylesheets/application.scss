@@ -1,6 +1,15 @@
+
 @import "custom/variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom/theme";
 @import "bookstore/general";
 @import "bookstore/utils/helpers";
+
+.cart_empty {
+  padding: 120px 0;
+}
+
+.push-150 {
+  margin-top: 150px;
+}

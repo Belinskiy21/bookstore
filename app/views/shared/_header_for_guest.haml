@@ -7,10 +7,10 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand Bookstore
-      %a.shop-link.pull-right.visible-xs{href: "#"}
+      = link_to cart_path(:order_id), class: 'shop-link pull-right visible-xs' do
         %span.shop-icon
           %span.shop-quantity= order_items_quantity
-    %a.shop-link.pull-right.hidden-xs{href: "#"}
+    = link_to cart_path(:order_id), class: 'shop-link pull-right hidden-xs' do
       %span.shop-icon
         %span.shop-quantity= order_items_quantity
     #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}

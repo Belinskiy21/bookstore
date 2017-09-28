@@ -1,10 +1,16 @@
 en:
   hello: "Hello world"
+  my_account: 'My account'
+  title: 'Bookstore'
+  orders: 'Orders'
+  settings: 'Settings'
+  log_out: 'Log out'
   sign_up: 'Sign Up'
   or: 'Or'
   log_in: 'Log In'
   enter_email: 'Enter Email'
   password: 'Password'
+  remember_me: 'Remember me'
   description: 'Description'
   published_at: 'Year of publication'
   dimension: 'Dimension'

@@ -22,6 +22,12 @@ class OrderItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @order_items = @order.order_items
+    @order_items.find(params[:id]).destroy
+    redirect_to cart_path, notice: 'Item was deleted!'
+  end
+
   private
 
   def order_items_params

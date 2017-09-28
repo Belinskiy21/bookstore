@@ -14,11 +14,7 @@
       .alert.alert-success= flash[:notice]
     - if flash[:alert]
       .alert.alert-danger= flash[:alert]
-    - if user_signed_in?
-      = render partial: 'shared/header'
-    - else
-      = render partial: 'shared/header_for_guest'
-
+    = render partial: 'shared/header'
     = yield
     - if user_signed_in?
       = render partial: 'shared/footer'

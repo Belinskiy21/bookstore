@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'home#index'
 
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :carts, only: [:show, :update]
   resources :checkout
-  
+
 
 
 

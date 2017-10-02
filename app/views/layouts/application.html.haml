@@ -16,10 +16,7 @@
       .alert.alert-danger= flash[:alert]
     = render partial: 'shared/header'
     = yield
-    - if user_signed_in?
-      = render partial: 'shared/footer'
-    - else
-      = render partial: 'shared/footer_for_guest'
+    = render partial: 'shared/footer'
     %script{src: "https://use.fontawesome.com/67602d7308.js"}
     %script{src: "../../assets/javascripts/jquery.js"}
     %script{src: "../../assets/javascripts/bootstrap.js"}

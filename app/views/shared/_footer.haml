@@ -4,13 +4,14 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            %a.nav-link{href: "root_path"} Home
+            = link_to t('home'), root_path, class: 'nav-link'
           %li
-            %a.nav-link{href: "#{books_path}"} Shop
-          %li
-            %a.nav-link{href: "#"} Orders
-          %li
-            %a.nav-link{href: "#"} Settings
+            = link_to t('shop'), books_path, class: 'nav-link'
+          - if user_signed_in?
+            %li
+              = link_to t('orders'), orders_path, class: 'nav-link'
+            %li
+              = link_to t('settings'), edit_user_registration_path, class: 'nav-link'
       .col-sm-3
         %p.general-nav-mail support@bookstore.com
         %p.general-nav-number (555)-555-5555

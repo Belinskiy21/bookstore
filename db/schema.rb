@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926200832) do
+ActiveRecord::Schema.define(version: 20171002131134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,23 @@ ActiveRecord::Schema.define(version: 20170926200832) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "zip"
+    t.string "country"
+    t.string "phone"
+    t.string "type"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order_id"
+    t.index ["order_id"], name: "index_addresses_on_order_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -81,6 +98,12 @@ ActiveRecord::Schema.define(version: 20170926200832) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "coupons", force: :cascade do |t|
     t.string "code"
     t.decimal "discount", precision: 3, scale: 2
@@ -127,6 +150,15 @@ ActiveRecord::Schema.define(version: 20170926200832) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shipping_methods", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.integer "min_days"
+    t.integer "max_days"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

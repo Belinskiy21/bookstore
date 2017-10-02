@@ -2,7 +2,11 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :books, through: :order_items
   belongs_to :user, optional: true
+  belongs_to :shipping_method, optional: true
   has_one :coupon, dependent: :destroy
+  has_many :addresses, dependent: :destroy
+  has_one :billing
+  has_one :shipping
   include AASM
 
   aasm :column => 'order_state',whiny_transitions: false do
@@ -46,7 +50,6 @@ class Order < ApplicationRecord
   end
 
   def shipping_price
-    # shipping_method.nil? ? 0 : shipping_method.price
-    10
+    shipping_method.nil? ? 0 : shipping_method.price
   end
 end

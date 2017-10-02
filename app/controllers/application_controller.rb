@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :categoriesall
   before_action :set_back_path
 
+  # def after_sign_in_path_for(resource)
+  #   checkout_index_path if request.referrer == cart_path(:order_id)
+  # end
 
   def categoriesall
     @categoriesall = Category.all

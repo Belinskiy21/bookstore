@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :reviews
+  has_many :addresses
+  has_one :billing
+  has_one :shipping
 
   validates_uniqueness_of :uid, unless: Proc.new { provider.nil? }, scope: :provider
   validates_format_of :email,:with => Devise::email_regexp

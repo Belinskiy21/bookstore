@@ -11,26 +11,26 @@ module Updatable
 
     def update_delivery
       current_order.update_attributes(order_params)
-      flash[:notice] = t('pickup') if current_order.shipping_method_id.nil?
+      flash[:alert] = t('pickup') if current_order.shipping_method_id.nil?
     end
-    #
-    # def update_payment
-    #   @credit_card = CreditCard.new(credit_card_params)
-    #   render_wizard unless @credit_card.save
-    # end
+
+    def update_payment
+      @credit_card = CreditCard.new(credit_card_params)
+      render_wizard unless @credit_card.save
+    end
     #
     # def update_confirm
     #   flash[:complete_order] = true
     #   session[:order_id] = nil if current_order.finalize
     # end
     #
-    # def order_params
-    #   params.require(:order).permit(:delivery_id)
-    # end
-    #
-    # def credit_card_params
-    #   params.require(:credit_card).permit(:number, :name, :mm_yy, :cvv)
-    # end
+    def order_params
+      params.require(:order).permit(:shipping_method_id)
+    end
+
+    def credit_card_params
+      params.require(:credit_card).permit(:number, :name, :mm_yy, :cvv)
+    end
 
     def addresses_params
       params.require(:addresses_form)

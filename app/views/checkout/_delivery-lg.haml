@@ -10,7 +10,7 @@
       %th
         %span.in-grey-600= t('price')
   %tbody
-    = f.collection_radio_buttons :shipping_method, @shipping_methods, :id, :name do |b|
+    = f.collection_radio_buttons :shipping_method_id, @shipping_methods, :id, :name do |b|
       %tr
         %td
           .form-group.radio.mt-0.mb-0

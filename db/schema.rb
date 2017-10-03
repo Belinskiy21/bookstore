@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002131134) do
+ActiveRecord::Schema.define(version: 20171003142419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,17 @@ ActiveRecord::Schema.define(version: 20171002131134) do
     t.index ["order_id"], name: "index_coupons_on_order_id"
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "number"
+    t.string "name"
+    t.string "cvv"
+    t.string "mm_yy"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -138,6 +149,10 @@ ActiveRecord::Schema.define(version: 20171002131134) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.string "order_state"
+    t.integer "credit_cart_id"
+    t.integer "shipping_method_id"
+    t.index ["credit_cart_id"], name: "index_orders_on_credit_cart_id"
+    t.index ["shipping_method_id"], name: "index_orders_on_shipping_method_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

@@ -5,6 +5,14 @@ module CurrentSession
   extend ActiveSupport::Concern
   included do
     helper_method :set_back_path
+    around_action :set_current_user
+  end
+
+  def set_current_user
+    CurrentSession.user = current_user
+    yield
+  ensure
+    CurrentSession.user = nil
   end
 
   def set_back_path

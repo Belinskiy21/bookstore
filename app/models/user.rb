@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews
   has_many :addresses
+  has_many :credit_cards
   has_one :billing
   has_one :shipping
 

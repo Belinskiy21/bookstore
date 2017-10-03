@@ -22,11 +22,11 @@ module Showable
       return jump_to(previous_step) unless current_order.shipping_method
       @credit_card = current_order.credit_card || CreditCard.new
     end
-    #
-    # def show_confirm
-    #   return jump_to(previous_step) unless current_order.credit_card
-    #   show_addresses
-    # end
+
+    def show_confirm
+      return jump_to(previous_step) unless current_order.credit_card_id
+      show_addresses
+    end
 
     def show_complete
       return jump_to(previous_step) unless flash[:complete_order]

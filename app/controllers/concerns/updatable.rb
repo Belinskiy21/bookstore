@@ -29,7 +29,7 @@ module Updatable
     end
 
     def credit_card_params
-      params.require(:credit_card).permit(:number, :name, :mm_yy, :cvv)
+      params.require(:credit_card).permit(:number, :name, :mm_yy, :cvv, :user_id)
     end
 
     def addresses_params

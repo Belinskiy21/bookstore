@@ -63,6 +63,7 @@ en:
   cart_name: 'Allow only letters'
   mm_yy: 'Mons can be from 01 to 12'
   cart_number: 'Card number:'
+  cart_number_valid: 'Please enter a valid credit card number'
   name_on_card: 'Name on Card'
   mm_yy: 'MM / YY'
   cvv: 'CVV'

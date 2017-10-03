@@ -12,6 +12,7 @@
         .form-group{ class: "#{@credit_card.errors[:name].empty? ? '' : 'has-error'}" }
           = f.label :name, t('name_on_card'), class: 'control-label input-label'
           = f.text_field :name, class: 'form-control', placeholder: t('name_on_card')
+          = f.hidden_field :user_id, value: current_user.id
           %span.help-block= @credit_card.errors[:name].to_sentence
       .col-sm-3
         .form-group{ class: "#{@credit_card.errors[:mm_yy].empty? ? '' : 'has-error'}" }

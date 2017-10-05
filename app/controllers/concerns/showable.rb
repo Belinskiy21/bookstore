@@ -30,7 +30,7 @@ module Showable
 
     def show_complete
       return jump_to(previous_step) unless flash[:complete_order]
-      @order = current_user.orders.processing
+      @order = current_user.orders.where(order_state: 'processing').order('updated_at').last
     end
 
     def show_addresses_params # take data from settings if persist

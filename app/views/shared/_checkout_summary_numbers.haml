@@ -2,14 +2,14 @@
   %td
     %p.font-16= t('subtotal')+':'
   %td
-    %p.font-16= number_to_currency(@current_order.subtotal)
+    %p.font-16= number_to_currency(current_order.subtotal)
 %tr
   %td
     %p.font-16= t('shipping')+':' unless step == :address
   %td
-    %p.font-16= number_to_currency(@current_order.shipping_price) unless step == :address
+    %p.font-16= number_to_currency(current_order.shipping_price) unless step == :address
 %tr
   %td
     %strong.font-16= t('total')+':'
   %td
-    %strong.font-16= number_to_currency(@current_order.total) || '--'
+    %strong.font-16= number_to_currency(current_order.total) || '--'

@@ -18,12 +18,12 @@ module Updatable
       @credit_card = CreditCard.new(credit_card_params)
       render_wizard unless @credit_card.save
     end
-    #
-    # def update_confirm
-    #   flash[:complete_order] = true
-    #   session[:order_id] = nil if current_order.finalize
-    # end
-    #
+
+    def update_confirm
+      flash[:complete_order] = true
+      session[:order_id] = nil if current_order.finalize
+    end
+
     def order_params
       params.require(:order).permit(:shipping_method_id)
     end

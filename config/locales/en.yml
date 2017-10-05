@@ -2,6 +2,7 @@ en:
   hello: "Hello world"
   my_account: 'My account'
   title: 'Bookstore'
+  book: 'Book'
   shop: 'Shop'
   home: 'Home'
   orders: 'Orders'
@@ -34,7 +35,7 @@ en:
   subtotal: 'SubTotal:'
   coupon: 'Coupon:'
   wrong_coupon: 'Wrong coupon!'
-  total: 'Total:'
+  total: 'Total'
   shipping: 'Shipping Price'
   enter_coupon: 'Enter coupon:'
   coupon_field_placeholder: 'Enter Your Coupon Code'
@@ -68,6 +69,15 @@ en:
   mm_yy: 'MM / YY'
   cvv: 'CVV'
   tooltip: '3-digit security code, usually found on the back of your card. American Express cards has 4-digit code, located on the front'
+  shipments: 'Shipments'
+  edit: 'edit'
+  payment_information: 'Payment Information'
+  place_order: 'Place Order'
+  thanks: 'Thank You for your Order!'
+  has_been_sent_to: 'An order confirmation has been sent to '
+  back_to_store: 'Back to Store'
+  order: 'Order'
+
   button:
     get_started: 'Get started'
     l_in: 'Log In'

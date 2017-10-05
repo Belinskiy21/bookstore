@@ -53,4 +53,9 @@ class Order < ApplicationRecord
   def shipping_price
     shipping_method.nil? ? 0 : shipping_method.price
   end
+
+  def finalize
+    self.completed
+    self.save!
+  end
 end

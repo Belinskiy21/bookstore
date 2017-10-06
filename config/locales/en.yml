@@ -77,6 +77,15 @@ en:
   has_been_sent_to: 'An order confirmation has been sent to '
   back_to_store: 'Back to Store'
   order: 'Order'
+  approved: 'Approved'
+  unprocessed: 'Unprocessed'
+  status: 'Status'
+  rejected: 'Rejected'
+  approve: 'Approve'
+  reject: 'Reject'
+  content: 'Content of review'
+  write: 'Write your review, please!'
+
 
   button:
     get_started: 'Get started'
@@ -87,3 +96,4 @@ en:
     buy_now: 'Buy Now'
     back_to_results: 'Back to results'
     add_to_cart: 'Add to cart'
+    post: 'Post'

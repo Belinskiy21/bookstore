@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :carts, only: [:show, :update]
   resources :checkout
+  resources :reviews, only: :create
 
 
 

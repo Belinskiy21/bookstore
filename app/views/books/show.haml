@@ -50,3 +50,4 @@
           %p.lead.small.pull-right= @book.materials
   .mb-80
     = render 'shared/review'
+    = render 'shared/review_form' if user_signed_in?

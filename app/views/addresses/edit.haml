@@ -5,7 +5,7 @@
       = link_to t('address'), edit_address_path(current_user.id),  class: 'tab-link'
     %li.tab-item
       = link_to 'Privacy', edit_user_registration_path, class: 'tab-link'
-  = form_for @addresses, url: edit_address_path(current_user.id), method: :put, class: 'res-mb-100' do |f|
+  = form_for @addresses, url: address_path(current_user.id), method: :put, class: 'res-mb-100' do |f|
     .hidden-xs.hidden-sm
       .row
         .col-md-5
@@ -32,6 +32,6 @@
             = f.check_box :use_billing, class: 'checkbox-input', id: 'use_billing', hidden: true
             %span.checkbox-icon
               %i.fa.fa-check
-            %span.checkbox-text= t('use_billing')  
+            %span.checkbox-text= t('use_billing')
     .general-text-align
       = f.submit t('save'), class: 'btn btn-default center-block mb-20'

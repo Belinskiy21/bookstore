@@ -1,4 +1,5 @@
 .form-group{ class: "#{errors.messages[:first_name].empty? ? '' : 'has-error'}" }
+  = ff.hidden_field :user_id, value: current_user.id
   = ff.label :first_name, t('first_name'), class: 'control-label input-label'
   = ff.text_field :first_name, class: 'form-control',  autocomplete: 'off', placeholder: t('first_name')
   %span.help-block= errors.messages[:first_name].to_sentence

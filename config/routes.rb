@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:show, :update]
   resources :checkout
   resources :reviews, only: :create
-
-
+  resources :addresses, only: :edit
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

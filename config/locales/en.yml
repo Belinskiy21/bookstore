@@ -85,6 +85,15 @@ en:
   reject: 'Reject'
   content: 'Content of review'
   write: 'Write your review, please!'
+  email: 'Email'
+  save: 'Save'
+  password: 'Password'
+  old_password: 'Old Password'
+  new_password: 'New Password'
+  confirm_password: 'Confirm Password'
+  remove_account: 'Remove Account'
+  please_rem_account: 'Please Remove My Account'
+  i_understand: 'I understand that all data will be lost'
 
 
   button:

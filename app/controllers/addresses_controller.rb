@@ -8,6 +8,10 @@ class AddressesController < ApplicationController
     render :index, object: @addresses.errors
   end
 
+  def edit
+    @addresses = AddressesForm.new(user_id: current_user.id)
+  end
+
   private
 
   def addresses_params

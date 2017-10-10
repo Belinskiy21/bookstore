@@ -11,7 +11,15 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :books, only: [:index, :show]
-  resources :orders
+  resources :orders do
+    collection do
+      get :in_progress
+      get :processing
+      get :in_delivery
+      get :delivered
+      get :canceled
+    end
+  end
   resources :order_items, only: [:create, :update, :destroy]
   resources :categories, only: [:index, :show]
   resources :carts, only: [:show, :update]

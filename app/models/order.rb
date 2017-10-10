@@ -10,6 +10,13 @@ class Order < ApplicationRecord
   has_one :shipping
   include AASM
 
+  scope :in_progress, -> { where(order_state: :in_progress) }
+  scope :processing, -> { where(order_state: :processing) }
+  scope :in_delivery, -> { where(order_state: :in_delivery) }
+  scope :delivered, -> { where(order_state: :delivered) }
+  scope :canceled, -> { where(order_state: :canceled) }
+
+
   aasm :column => 'order_state',whiny_transitions: false do
    state :in_progress, initial: true
    state :processing

@@ -94,6 +94,16 @@ en:
   remove_account: 'Remove Account'
   please_rem_account: 'Please Remove My Account'
   i_understand: 'I understand that all data will be lost'
+  my_orders: 'My orders'
+  sort_by: 'Sort by'
+  number: 'number'
+  complited_at: 'Complited at'
+  all: 'All'
+  in_progress: 'In progress'
+  processing: 'Processing'
+  in_delivery: 'In delivery'
+  delivered: 'Deliverded'
+  canceled: 'Canceled'
 
 
   button:

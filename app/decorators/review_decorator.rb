@@ -51,6 +51,6 @@ class ReviewDecorator < Draper::Decorator
   end
 
   def get_name(subject)
-    subject.name[0].upcase + '. ' + subject.name[1].capitalize
+    subject.first_name.capitalize + ' ' + subject.last_name.capitalize
   end
 end

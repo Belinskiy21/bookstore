@@ -15,6 +15,7 @@ class Address < ApplicationRecord
 
   scope :shipping, -> { where(type: 'Shipping') }
   scope :billing, -> { where(type: 'Billing') }
+  before_validation :clear_mask
 
   def clear_mask
     self.phone&.gsub!(/[-\s()]/, '')

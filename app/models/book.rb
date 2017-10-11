@@ -23,6 +23,16 @@ class Book < ApplicationRecord
 
   before_destroy :ensure_not_referenced_by_any_order_item
 
+  scope :newest_first, -> { order ('created_at DESC') }
+  scope :popular_first, -> { joins(orders: [:order_items])
+                                  .includes(:authors)
+                                  .group(:id)
+                                  .order('SUM(order_items.quantity)') }
+  scope :price_descending, -> { order ('price DESC') }
+  scope :price_ascending, -> { order ('price ASC') }
+  scope :title_descending, -> { order ('title DESC') }
+  scope :title_ascending, -> { order ('title ASC') }
+
   private
 
   def ensure_not_referenced_by_any_order_item

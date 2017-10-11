@@ -10,7 +10,16 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :books, only: [:index, :show]
+  resources :books do
+    collection do
+      get :newest_first
+      get :popular_first
+      get :price_descending
+      get :price_ascending
+      get :title_descending
+      get :title_ascending
+    end
+  end
   resources :orders do
     collection do
       get :in_progress

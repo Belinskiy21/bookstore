@@ -23,10 +23,10 @@
                 %span.in-grey-600= t('quantity')
               %td
                 .input-group
-                  %a.input-link{href: "#"}
+                  = link_to order_item_path( item, item: { quantity: item.quantity == 1 ? item.quantity : item.quantity - 1} ), remote: true, method: 'PUT', class: 'input-link' do
                     %i.fa.fa-minus.line-heaght-40
                   %input.form-control.quantity-input{type: "text", value: item.quantity, 'data-book-id': item.book.id, 'data-item-id': item.id}
-                  %a.input-link{href: "#"}
+                  = link_to order_item_path(item, item: { quantity: item.quantity + 1} ), remote: true, method: 'PUT', class: 'input-link' do
                     %i.fa.fa-plus.line-heaght-40
             %tr
               %td
@@ -57,14 +57,11 @@
             %span.font-16.in-gold-500= number_to_currency(item.book.price)
           %td
             .input-group
-              = form_for item, method: :patch, remote: true, html: {class: 'quantity_form'} do |form|
-                %a.input-link{href: "#"}
-                  %i.fa.fa-minus.line-heaght-40
-                = form.text_field :quantity, value: item.quantity, class: 'form-control quantity-input', autocomplete: 'off'
-                = form.hidden_field :product_id, value: item.book.id
-                = form.submit class: 'hidden', id: 'submit_quantity_' + item.id.to_s;
-                %a.input-link{href: "#"}
-                  %i.fa.fa-plus.line-heaght-40
+              = link_to order_item_path(item, quantity: item.quantity == 1 ? item.quantity : item.quantity - 1 ), remote: true, method: 'PUT', class: 'input-link' do
+                %i.fa.fa-minus.line-height-40
+              %input.form-control.quantity-input{type: "text", value: item.quantity}
+              = link_to order_item_path(item, quantity: item.quantity + 1 ), remote: true, method: 'PUT', class: 'input-link' do
+                %i.fa.fa-plus.line-height-40
             %td
               %span{class: 'font-16 in-gold-500' + item.id.to_s}= number_to_currency(item.book.price)
             %td

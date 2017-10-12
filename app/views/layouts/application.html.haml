@@ -4,12 +4,11 @@
     %meta{charset: "UTF-8"}
     %meta{name: "viewport", content: "width=device-width"}
     %link{href: "../../favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}
-    %link{href: "https://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet"}
-    %link{href: "../css/style.css", rel: "stylesheet"}
     %title Bookstore
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{href: "https://fonts.googleapis.com/css?family=Open+Sans", rel: "stylesheet"}
   %body
     - if flash[:notice]
       .alert.alert-success= flash[:notice]
@@ -19,5 +18,3 @@
     = yield
     = render partial: 'shared/footer'
     %script{src: "https://use.fontawesome.com/67602d7308.js"}
-    %script{src: "../../assets/javascripts/jquery.js"}
-    %script{src: "../../assets/javascripts/bootstrap.js"}

@@ -23,11 +23,11 @@
             %p.h1.in-gold-500.mt-10= number_to_currency(@book.price)
           .col-xs-5.col-md-3
             .input-group.general-position
-              %a.input-link{href: "#"}
-                %i.fa.fa-minus.line-height-40
-              = f.text_field :quantity, value: 1, class: 'form-control quantity-input', min: 1
-              %a.input-link{href: "#"}
-                %i.fa.fa-plus.line-height-40
+              %a.input-link{href: "javascript:void(0);"}
+                %i.fa.fa-minus.line-height-40#book_page
+              = f.text_field :quantity, value: 1, class: 'form-control quantity-input'
+              %a.input-link{href: "javascript:void(0);"}
+                %i.fa.fa-plus.line-height-40#book_page
           .col-xs-7.col-md-5
             = f.hidden_field :book_id, value: @book.id
             = f.submit t('button.add_to_cart'), class: 'btn btn-default pull-right general-position', disabled: !@book.active

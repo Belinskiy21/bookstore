@@ -28,6 +28,16 @@ class OrderItemsController < ApplicationController
     redirect_to cart_path, notice: 'Item was deleted!'
   end
 
+  def update
+   @order_item = @order.order_items.find(params[:id])
+   @order_item.update_attribute(:quantity, params[:quantity].to_i )
+   respond_to do |format|
+     format.js
+     redirect_to cart_path, notice: 'Cart was updated!'
+    end
+
+  end
+
   private
 
   def order_items_params

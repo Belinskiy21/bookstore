@@ -9,6 +9,8 @@ class Order < ApplicationRecord
   has_one :billing
   has_one :shipping
   include AASM
+  attr_accessor :active_admin_requested_event
+
 
   scope :in_progress, -> { where(order_state: :in_progress) }
   scope :processing, -> { where(order_state: :processing) }

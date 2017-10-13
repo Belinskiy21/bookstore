@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  load_and_authorize_resource
+  
   def index
     @orders = Order.where(user_id: current_user.id)
   end
@@ -9,27 +9,27 @@ class OrdersController < ApplicationController
   end
 
   def in_progress
-    @orders = Order.in_progress
+    @orders = Order.in_progress.where(user_id: current_user.id)
     render action: :index
   end
 
   def processing
-    @orders = Order.processing
+    @orders = Order.processing.where(user_id: current_user.id)
     render action: :index
   end
 
   def in_delivery
-    @orders = Order.in_delivery
+    @orders = Order.in_delivery.where(user_id: current_user.id)
     render action: :index
   end
 
   def delivered
-    @orders = Order.delivered
+    @orders = Order.delivered.where(user_id: current_user.id)
     render action: :index
   end
 
   def canceled
-    @orders = Order.canceled
+    @orders = Order.canceled.where(user_id: current_user.id)
     render action: :index
   end
   private

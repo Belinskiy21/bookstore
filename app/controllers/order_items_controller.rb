@@ -35,7 +35,6 @@ class OrderItemsController < ApplicationController
      format.js
      redirect_to cart_path, notice: 'Cart was updated!'
     end
-
   end
 
   private

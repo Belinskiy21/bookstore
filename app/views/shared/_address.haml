@@ -1,0 +1,29 @@
+.form-group{ class: "#{errors.messages[:first_name].empty? ? '' : 'has-error'}" }
+  = ff.hidden_field :user_id, value: current_user.id
+  = ff.label :first_name, t('first_name'), class: 'control-label input-label'
+  = ff.text_field :first_name, class: 'form-control',  autocomplete: 'off', placeholder: t('first_name')
+  %span.help-block= errors.messages[:first_name].to_sentence
+.form-group{ class: "#{errors.messages[:last_name].empty? ? '' : 'has-error'}" }
+  = ff.label :last_name, class: 'control-label input-label'
+  = ff.text_field :last_name, class: 'form-control',  autocomplete: 'off', placeholder: t('last_name')
+  %span.help-block= errors.messages[:last_name].to_sentence
+.form-group{ class: "#{errors.messages[:address].empty? ? '' : 'has-error'}" }
+  = ff.label :address, t('address'), class: 'control-label input-label'
+  = ff.text_field :address, class: 'form-control',  autocomplete: 'off', placeholder: t('address')
+  %span.help-block= errors.messages[:address].to_sentence
+.form-group{ class: "#{errors.messages[:city].empty? ? '' : 'has-error'}" }
+  = ff.label :city, t('city'), class: 'control-label input-label'
+  = ff.text_field :city, class: 'form-control',  autocomplete: 'off', placeholder: t('city')
+  %span.help-block= errors.messages[:city].to_sentence
+.form-group{ class: "#{errors.messages[:zip].empty? ? '' : 'has-error'}" }
+  = ff.label :zip, t('zip'), class: 'control-label input-label'
+  = ff.text_field :zip, class: 'form-control',  autocomplete: 'off', placeholder: t('zip')
+  %span.help-block= errors.messages[:zip].to_sentence
+.form-group{ class: "#{errors.messages[:country].empty? ? '' : 'has-error'}" }
+  = ff.label :country, t('country'), class: 'control-label input-label'
+  = ff.country_select(:country, { priority_countries: ['UA'], placeholder: t('country_select') }, { class: 'form-control', id: 'country' } )
+  %span.help-block= errors.messages[:country].to_sentence
+.form-group.mb-55{ class: "#{errors.messages[:phone].empty? ? '' : 'has-error'}" }
+  = ff.label :phone, 'Phone', class: 'control-label input-label'
+  = ff.text_field :phone, class: 'form-control',  autocomplete: 'off', placeholder: 'Example +355 66 123 4567'
+  %span.help-block= errors.messages[:phone].to_sentence

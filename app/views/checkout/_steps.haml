@@ -1,0 +1,13 @@
+%ul.steps.list-inline
+  - wizard_steps.each.with_index do |step_item, index|
+    - unless index == 0
+      %li.step-divider
+    - if past_step?(step_item)
+      %li.step.done
+        %span.step-number
+          %i.fa.fa-check.step-icon
+        %span.step-text.hidden-xs= t "#{step_item.to_s}"
+        - next
+    %li.step{ class: current_step?(step_item) ? 'active' : ''}
+      %span.step-number= index + 1
+      %span.step-text.hidden-xs= t "#{step_item.to_s}"

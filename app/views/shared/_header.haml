@@ -1,0 +1,70 @@
+%header.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.pull-left{type: "button", 'data-toggle': "collapse", 'data-target': "#navbar"}
+        %span.sr-only
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand= t 'title'
+      = link_to cart_path(:order_id), class: 'shop-link pull-right visible-xs' do
+        %span.shop-icon
+          %span.shop-quantity= order_items_quantity
+    = link_to cart_path(:order_id), class: 'shop-link pull-right hidden-xs' do
+      %span.shop-icon
+        %span.shop-quantity= order_items_quantity
+    #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
+      .visible-xs
+        %button.close{type: "button", 'aria-label': "Close"}
+          %span{'aria-hidden': "true"} &times;
+        %ul.nav.navbar-nav
+          %li
+            = link_to t('home'), root_path
+          %li
+            %a{type: "button", 'data-toggle': "collapse", href: "#shopmenu", 'aria-expanded': "false", 'aria-controls': "shopmenu"}= t('shop')
+            %ul#shopmenu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+              =render 'shared/categories'
+          - if user_signed_in?
+            %li
+              %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu"}= t 'my_account'
+              %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+                %li
+                  = link_to t('orders'), orders_path, class: 'collapse-link'
+                %li
+                  = link_to t('settings'), edit_user_registration_path, class: 'collapse-link'
+                %li.divider.collapse-link{role: "separator"}
+                %li
+                  = link_to t('log_out'), destroy_user_session_path, class: 'collapse-link'
+          - else
+            %li
+              = link_to t('log_in'), new_user_session_path
+            %li
+              = link_to t('sign_up'), new_user_registration_path
+
+      .hidden-xs
+        %ul.nav.navbar-nav
+          %li
+            = link_to t('home'), root_path
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= t('shop')
+            %ul.dropdown-menu
+              =render 'shared/categories'
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= t 'my_account'
+              %ul.dropdown-menu
+                %li
+                  = link_to t('orders'), orders_path
+                %li
+                  = link_to t('settings'), edit_user_registration_path
+                %li.divider{role: "separator"}
+                %li
+                  = link_to t('log_out'), destroy_user_session_path
+          - else
+            %li.dropdown
+              %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= t 'my_account'
+              %ul.dropdown-menu
+                %li
+                  = link_to t('log_in'), new_user_session_path
+                %li
+                  = link_to t('sign_up'), new_user_registration_path

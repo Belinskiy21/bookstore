@@ -23,8 +23,9 @@ class Ability
        end
 
        can [:read, :create], Order
-       can [:update, :destroy], Order do |order|
-         order.try(:user) == user
+       can [:update, :destroy, :in_progress,
+            :processing, :in_delivery, :delivered, :canceled], Order do |order|
+            order.try(:user) == user
        end
 
        can :create, Review

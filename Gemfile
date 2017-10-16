@@ -27,6 +27,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_importable'
 gem 'kaminari'
 gem 'carrierwave', '~> 1.0'
+gem 'cloudinary'
 gem 'aasm'
 gem "mini_magick"
 gem 'jquery-rails', '~> 4.3.1'

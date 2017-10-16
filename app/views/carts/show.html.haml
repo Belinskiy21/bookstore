@@ -10,7 +10,7 @@
           %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
             %span{'aria-hidden': "true"} &times;
           .general-img-wrap-table
-            = image_tag small_img_of item.book, class: 'cart-img-shadow'
+            = cl_image_tag small_img_of item.book, class: 'cart-img-shadow'
           %p.title= item.book.title
           %table.table
             %tr
@@ -50,7 +50,7 @@
         %tr
           %td
             .general-img-wrap-table
-              = image_tag img_of item.book, class: 'cart-img-shadow'
+              = cl_image_tag img_of item.book, class: 'cart-img-shadow'
           %td
             %p.title= item.book.title
           %td

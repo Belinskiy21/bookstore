@@ -8,7 +8,7 @@
         .row
           .col-sm-5
             .general-img-wrap
-              %img.img-shadow.general-thumbnail-img= image_tag img_of(fresh_book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
+              %img.img-shadow.general-thumbnail-img= cl_image_tag img_of(fresh_book) , alt: 'design-book', class: 'img-shadow general-thumbnail-img'
           .col-sm-7
             .mb-60
               %h1= fresh_book.title

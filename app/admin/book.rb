@@ -7,7 +7,7 @@ ActiveAdmin.register Book do
       selectable_column
       column :id
       column 'Images' do |book|
-        book.images.map{|i| image_tag(i.file, size: '50x60') }.join.html_safe
+        book.images.map{|i| cl_image_tag(i.file, size: '50x60') }.join.html_safe
       end
       column('Category') { |book| book.category.name }
       column :title
@@ -34,7 +34,7 @@ ActiveAdmin.register Book do
         f.input :materials
         f.input :dimensions
         f.input :year_of_publication
-        hint = f.object.images.map { |i| image_tag(i.file, size: '50x60') }
+        hint = f.object.images.map { |i| cl_image_tag(i.file, size: '50x60') }
           .join.html_safe if f.object.images
         f.input :images, as: :file, required: true,
           input_html: { multiple: true}, hint: hint

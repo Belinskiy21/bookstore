@@ -5,7 +5,16 @@ module CurrentSession
   extend ActiveSupport::Concern
   included do
     helper_method :set_back_path
-    around_action :set_current_user
+    # around_action :set_current_user
+    #
+    # def after_sign_in_path_for(resource)
+    #   if cookies[:from_checkout]
+    #     cookies.delete :from_checkout
+    #     checkout_path(:addresses)
+    #   else
+    #     super
+    #   end
+    # end
   end
 
   def set_current_user

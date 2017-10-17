@@ -60,19 +60,19 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "bookstore_#{Rails.env}"
-  config.action_mailer.perform_caching = false
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'belinskiy-bookstore.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'belinskiy-bookstore.herokuapp.com',
-    :authentication => :plain,
+    address: "smtp.gmail.com",
+    port: '587',
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV['USER_NAME'],
+    password: ENV['PASSWORD']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

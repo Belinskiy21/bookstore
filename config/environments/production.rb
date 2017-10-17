@@ -71,8 +71,8 @@ Rails.application.configure do
     port: '587',
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: ENV['USER_NAME'],
-    password: ENV['PASSWORD']
+    user_name: '27021981oleg@gmail.com',
+    password: 'bookstore'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

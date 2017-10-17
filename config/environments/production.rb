@@ -64,17 +64,17 @@ Rails.application.configure do
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.default_url_options = { :host => 'belinskiy-bookstore.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: '587',
-    domain: 'belinskiy-bookstore.herokuapp.com',
-    authentication: :plain,
-    enable_starttls_auto: true,
-    user_name: ENV['USER_NAME'],
-    password: ENV['PASSWORD']
-  }
+  ActionMailer::Base.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'belinskiy-bookstore.herokuapp.com',
+  :authentication => :plain,
+}
+ActionMailer::Base.delivery_method = :smtp
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

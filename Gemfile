@@ -36,6 +36,7 @@ gem 'wicked'
 gem 'simple_form'
 gem 'country_select'
 gem 'virtus'
+gem 'mailgun_rails'
 
 group :development do
   gem 'pry'

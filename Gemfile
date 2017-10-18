@@ -38,27 +38,25 @@ gem 'country_select'
 gem 'virtus'
 
 
-group :development do
+group :development, :test do
   gem 'pry'
   gem 'selenium-webdriver'
   gem 'foreman'
   gem 'dotenv-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
   gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'spring'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
   gem 'capybara', '~> 2.13'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
-  end
 end
 
 gem 'rails_12factor', group: :production

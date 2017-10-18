@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
-  before_action :set_book_count
+
   def index
     @books = Book.all.page(params[:page])
     @order_item = current_order.order_items.new
+    @book_count = Book.all.count
   end
 
   def show
@@ -40,12 +41,5 @@ class BooksController < ApplicationController
   def title_ascending
     @books = Book.title_ascending.page(params[:page])
     render action: :index
-  end
-
-
-  private
-
-  def set_book_count
-    @book_count = Book.all.count
   end
 end

@@ -5,15 +5,16 @@ module CurrentSession
   extend ActiveSupport::Concern
   included do
     helper_method :set_back_path
-  
-    # def after_sign_in_path_for(resource)
-    #   if cookies[:from_checkout]
-    #     cookies.delete :from_checkout
-    #     checkout_path(:addresses)
-    #   else
-    #     super
-    #   end
-    # end
+
+    def after_sign_in_path_for(resource)
+      if params[:redirect_to].present?
+        store_location_for(resource, params[:redirect_to])
+      elsif request.referer == new_user_session_path
+        super
+      else
+        stored_location_for(resource) || request.referer || root_path
+      end
+    end
   end
 
   def set_back_path

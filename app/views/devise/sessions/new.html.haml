@@ -21,6 +21,7 @@
           %i.fa.fa-check
         %span.checkbox-text= t('remember_me')
     .text-center
+      = hidden_field_tag :redirect_to, params[:redirect_to]
       = f.submit t('button.l_in'), class: 'btn btn-default mb-20'
   %p.general-sign-text.text-center
     Dont have account?

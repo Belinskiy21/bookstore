@@ -12,7 +12,7 @@ module CurrentSession
       elsif request.referer == new_user_session_path
         super
       else
-        stored_location_for(resource) || request.referer || root_path
+        root_path
       end
     end
   end

@@ -59,6 +59,7 @@ group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
+  gem 'faker'
 end
 
 gem 'rails_12factor', group: :production

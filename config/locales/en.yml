@@ -5,6 +5,9 @@ en:
   book: 'Book'
   shop: 'Shop'
   home: 'Home'
+  greeting: 'Welcome to our amazing Bookstore!'
+  text: 'We pore through hundreds of new books each month and select the five best we can find to share with our members.'
+  best_sellers: 'Best Sellers'
   orders: 'Orders'
   settings: 'Settings'
   log_out: 'Log out'
@@ -104,6 +107,7 @@ en:
   in_delivery: 'In delivery'
   delivered: 'Deliverded'
   canceled: 'Canceled'
+  catalog: 'Catalog'
 
 
   button:

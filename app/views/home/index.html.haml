@@ -2,10 +2,10 @@
   =render 'shared/carousel'
 .container
   .jumbotron.text-center.mb-0
-    %h2.h1 Welcome to our amazing Bookstore!
+    %h2.h1= t('greeting')
     .mb-res-50
-      %p We pore through hundreds of new books each month and select the five best we can find to share with our members.
+      %p= t('text')
     = link_to t('button.get_started'), books_path, class: 'button btn btn-default'
   .mb-35
-    %h3 Best Sellers
+    %h3= t('best_sellers')
     =render 'shared/book'

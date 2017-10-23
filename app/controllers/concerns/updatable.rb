@@ -17,7 +17,7 @@ module Updatable
     def update_payment
       @credit_card = CreditCard.new(credit_card_params)
       render_wizard unless @credit_card.save
-      current_order.update(credit_card: @credit_card)
+      current_order.update(credit_card: @credit_card, user_id: current_user.id)
     end
 
     def update_confirm

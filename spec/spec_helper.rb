@@ -1,4 +1,8 @@
-
+require 'capybara/rspec'
+require "transactional_capybara/rspec"
+require 'factory_girl_rails'
+require "email_spec"
+require "email_spec/rspec"
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
@@ -12,7 +16,6 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  # config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

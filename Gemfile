@@ -47,19 +47,23 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+  gem "spring-commands-rspec"
 end
 group :development, :test do
   gem 'rspec-rails'
   gem 'ffaker'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'spring'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'capybara', '~> 2.13'
+  gem 'transactional_capybara', '0.2.0'
   gem 'database_cleaner'
   gem 'faker'
+  gem 'email_spec'
+  gem 'action_mailer_cache_delivery'
 end
 
 gem 'rails_12factor', group: :production

@@ -5,7 +5,8 @@ module BooksHelper
   end
 
   def small_img_of(book, options = {})
-    book.images.last.file.thumb.url || default_image
+      book.images.last.file.thumb.url unless book.images.last.nil?
+      default_image
   end
 
   def go_back_url
@@ -15,6 +16,6 @@ module BooksHelper
   private
 
   def default_image
-    'default_img.png'
+    'jyljivokym3gdn1ezwan.jpg'
   end
 end

@@ -14,7 +14,7 @@ RSpec.feature 'visiting Home page', type: :feature do
       it { expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '0' }
     end
 
-    context 'as signed_in user', skip: 'because confirmable' do
+    context 'as signed_in user' do
       before { sign_in_as_user }
       it { expect(page).to have_content I18n.t('log_out') }
       it { expect(page).not_to have_content I18n.t('log_in') }
@@ -42,6 +42,13 @@ RSpec.feature 'visiting Home page', type: :feature do
       it { expect(page).to have_content I18n.t('catalog') }
       it { expect(page).to have_content I18n.t('newest_first') }
     end
+    context 'user click link' do
+      it 'Buy Now and add book to card' do
+        find_button("Buy Now").click
+        expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '1'
+      end
+    end
+
   end
 
   describe "footer" do
@@ -53,7 +60,7 @@ RSpec.feature 'visiting Home page', type: :feature do
 
     end
 
-    context 'as signed_in user', skip: 'because confirmable' do
+    context 'as signed_in user' do
       before { sign_in_as_user }
       it { expect(page).to have_content I18n.t('settings') }
       it { expect(page).to have_content I18n.t('my_account') }

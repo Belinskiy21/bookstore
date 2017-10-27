@@ -17,9 +17,6 @@ module Features
       fill_in 'Enter Email', with: @user.email
       fill_in 'Password', with: @user.password
       find('input[type="submit"]').click
-      # ActionMailer::Base.deliveries.last.to.should include(@user.email)
-      # open_email(@user.email)
-      # click_link "Confirm my account"
     end
   end
 end

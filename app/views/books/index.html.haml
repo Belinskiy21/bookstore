@@ -13,16 +13,15 @@
   .dropdowns.mb-25.visible-xs
     %p.lead.small.mb-10 Filter by category
     .dropdown
-      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-      %li.mr-35
-        = link_to books_path, class: 'filter-link' do
-          = t('button.all')
-          %span.badge.general-badge= @book_count
-      = render 'shared/categories'
-    %p.lead.small.mb-10 Sort by
+      %a.dropdown-toggle.lead.small{href: "#{books_path}", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+        = t('button.all')
+        %i.fa.fa-angle-down.dropdown-icon.pull-right
+      %ul.dropdown-menu
+        = render @categoriesall
+    %p.lead.small.mb-10
     .dropdown
       = render 'shared/filters'
   .mb-120
-  = render 'shared/book'
-  = render 'shared/view_more'
-  %br
+    = render 'shared/book'
+    .text-center
+      = render 'shared/view_more'

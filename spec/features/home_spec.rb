@@ -6,17 +6,19 @@ RSpec.feature 'visiting Home page', type: :feature do
   describe 'header' do
     context 'guest user' do
       it { expect(page).to have_content I18n.t('title') }
-      it { expect(page).to have_content I18n.t('home') }
+      it { expect(page).to have_link I18n.t('home', root_path) }
       it { expect(page).to have_content I18n.t('shop') }
       it { expect(page).to have_content I18n.t('my_account') }
-      it { expect(page).to have_content I18n.t('log_in') }
-      it { expect(page).to have_content I18n.t('sign_up') }
+      it { expect(page).to have_link I18n.t('log_in', new_user_session_path) }
+      it { expect(page).to have_link I18n.t('sign_up', new_user_registration_path) }
       it { expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '0' }
     end
 
     context 'as signed_in user' do
       before { sign_in_as_user }
-      it { expect(page).to have_content I18n.t('log_out') }
+      it { expect(page).to have_link I18n.t('log_out', destroy_user_session_path) }
+      it { expect(page).to have_link I18n.t('settings', edit_user_registration_path) }
+      it { expect(page).to have_link I18n.t('orders', orders_path) }
       it { expect(page).not_to have_content I18n.t('log_in') }
       it { expect(page).not_to have_content I18n.t('sign_up') }
     end
@@ -46,6 +48,7 @@ RSpec.feature 'visiting Home page', type: :feature do
       it 'Buy Now and add book to card' do
         find_button("Buy Now").click
         expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '1'
+        expect(page).to have_content 'Book was added to you order!'
       end
     end
 
@@ -54,7 +57,7 @@ RSpec.feature 'visiting Home page', type: :feature do
   describe "footer" do
     context 'guest user'do
     it { expect(page).to have_content I18n.t('title') }
-    it { expect(page).to have_content I18n.t('home') }
+    it { expect(page).to have_link I18n.t('home', root_path) }
     it { expect(page).to have_content 'support@bookstore.com' }
     it { expect(page).to have_content '(555)-555-5555' }
 
@@ -62,9 +65,9 @@ RSpec.feature 'visiting Home page', type: :feature do
 
     context 'as signed_in user' do
       before { sign_in_as_user }
-      it { expect(page).to have_content I18n.t('settings') }
-      it { expect(page).to have_content I18n.t('my_account') }
-      it { expect(page).to have_content I18n.t('orders') }
+      it { expect(page).to have_link I18n.t('settings',  edit_user_registration_path) }
+      it { expect(page).to have_link I18n.t('orders', orders_path) }
+      it { expect(page).to have_link I18n.t('shop', books_path) }
     end
   end
 end

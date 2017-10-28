@@ -1,3 +1,5 @@
+require 'simplecov'
+SimpleCov.start 'rails'
 require 'capybara/rspec'
 require "transactional_capybara/rspec"
 require 'factory_girl_rails'

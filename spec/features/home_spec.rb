@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'visiting Home page', type: :feature do
   before :each {visit root_path}
-  after :each { Warden.test_reset! }
   describe 'header' do
-    context 'guest user' do
+    context 'as guest user' do
       it { expect(page).to have_content I18n.t('title') }
       it { expect(page).to have_link I18n.t('home', root_path) }
       it { expect(page).to have_content I18n.t('shop') }
@@ -14,6 +13,29 @@ RSpec.feature 'visiting Home page', type: :feature do
       it { expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '0' }
     end
 
+    context 'user click link' do
+      it 'shoping cart icon' do
+        page.find('a.hidden-xs').click
+        expect(page).to have_http_status(:success)
+        expect(page).to have_content I18n.t('cart')
+      end
+
+      it 'Log in' do
+        all(:link, I18n.t('log_in'))[1].click
+        expect(page).to have_http_status(:success)
+        expect(page).to have_content I18n.t('button.forgot_password')
+        expect(page).to have_content 'Dont have account?'
+        expect(page).to have_content I18n.t('remember_me')
+
+      end
+
+      it 'sign up' do
+        all(:link, I18n.t('sign_up'))[1].click
+        expect(page).to have_content I18n.t('confirm_password')
+        expect(page).to have_selector :link_or_button, I18n.t('sign_up')
+      end
+    end
+
     context 'as signed_in user' do
       before { sign_in_as_user }
       it { expect(page).to have_link I18n.t('log_out', destroy_user_session_path) }
@@ -21,6 +43,20 @@ RSpec.feature 'visiting Home page', type: :feature do
       it { expect(page).to have_link I18n.t('orders', orders_path) }
       it { expect(page).not_to have_content I18n.t('log_in') }
       it { expect(page).not_to have_content I18n.t('sign_up') }
+      it 'click link Log out' do
+        all(:link, I18n.t('log_out'))[1].click
+        expect(page).to have_content 'Signed out successfully.'
+      end
+      it 'click link Orders' do
+        first(:link, I18n.t('orders')).click
+        expect(page).to have_http_status(:success)
+        expect(page).to have_content I18n.t('my_orders')
+      end
+      it 'click link Settings' do
+        all(:link, I18n.t('settings'))[0].click
+        expect(page).to have_selector :link_or_button, I18n.t('address')
+        expect(page).to have_selector :link_or_button, I18n.t('privacy')
+      end
     end
   end
 

@@ -64,6 +64,7 @@ group :test do
   gem 'faker'
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'
+  gem 'simplecov', :require => false
 end
 
 gem 'rails_12factor', group: :production

@@ -4,7 +4,7 @@
     %li.tab-item.active
       = link_to t('address'), edit_address_path(current_user.id),  class: 'tab-link'
     %li.tab-item
-      = link_to 'Privacy', edit_user_registration_path, class: 'tab-link'
+      = link_to t('privacy'), edit_user_registration_path, class: 'tab-link'
       .row.mb-60
         .col-sm-5
           %p.in-gold-500.font-18.mb-25= t('email')

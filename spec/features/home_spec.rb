@@ -88,6 +88,18 @@ RSpec.feature 'visiting Home page', type: :feature do
       end
     end
 
+    context 'Best Sellers books' do
+      before do
+        @order_item = FactoryGirl.create(:order_item_best_sellers)
+        visit root_path
+      end
+      it 'user click on eye icon ' do
+        page.find(:link, '.thumb-hover-link').click
+        expect(page).to have_http_status(:success)
+        expect(page).to have_selector :link_or_button, I18n.t('button.back_to_results')
+      end
+    end
+
   end
 
   describe "footer" do

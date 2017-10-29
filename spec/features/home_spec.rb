@@ -94,9 +94,14 @@ RSpec.feature 'visiting Home page', type: :feature do
         visit root_path
       end
       it 'user click on eye icon ' do
-        page.first(:linkhref, book_path(@order_item.book), visible: false ).click
+        page.find(:linkhref, book_path(@order_item.book)).click
         expect(page).to have_http_status(:success)
         expect(page).to have_selector :link_or_button, I18n.t('button.back_to_results')
+      end
+
+      it 'user click on shopping cart icon' do
+        page.find(:shopping_cart_icon, @order_item.book.id).click
+        expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '1'
       end
     end
 

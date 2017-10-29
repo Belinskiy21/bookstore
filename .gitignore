@@ -20,3 +20,4 @@
 .bashrc
 .env
 Procfile
+coverage

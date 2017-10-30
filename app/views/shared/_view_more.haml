@@ -1,2 +1,2 @@
 .text-center
-  = link_to_next_page @books,t('button.view_more'), class: 'btn btn-primary'
+  = link_to t('button.view_more'), books_path(page: @books.current_page + 1 ),class: 'btn btn-primary'

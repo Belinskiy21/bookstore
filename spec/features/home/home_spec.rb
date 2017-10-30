@@ -82,7 +82,7 @@ RSpec.feature 'visiting Home page', type: :feature do
     end
     context 'user click link' do
       it 'Buy Now and add book to card' do
-        find_button("Buy Now").click
+        page.first(:button, I18n.t('button.buy_now')).click
         expect(page.find('a.hidden-xs>span.shop-icon')).to have_content '1'
         expect(page).to have_content 'Book was added to you order!'
       end

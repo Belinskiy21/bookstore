@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @books = @category.books.page(params[:page])
     @order_item = OrderItem.new
+    @book_count = Book.all.count
   end
   private
 

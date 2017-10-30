@@ -1,10 +1,11 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 require 'capybara/rspec'
-require "transactional_capybara/rspec"
+require 'transactional_capybara/rspec'
 require 'factory_girl_rails'
 require "email_spec"
 require "email_spec/rspec"
+Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|

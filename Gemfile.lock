@@ -103,6 +103,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.1.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     carrierwave (1.2.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -448,6 +451,7 @@ DEPENDENCIES
   bootstrap-sass
   cancancan
   capybara (~> 2.13)
+  capybara-webkit
   carrierwave (~> 1.0)
   cloudinary
   coffee-rails (~> 4.2)

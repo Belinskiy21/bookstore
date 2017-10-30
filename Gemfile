@@ -59,6 +59,7 @@ end
 group :test do
   gem 'spring'
   gem 'capybara', '~> 2.13'
+  gem 'capybara-webkit'
   gem 'transactional_capybara', '0.2.0'
   gem 'database_cleaner'
   gem 'faker'

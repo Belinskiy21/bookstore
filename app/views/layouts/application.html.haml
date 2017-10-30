@@ -35,6 +35,7 @@
     - if flash[:alert]
       .alert.alert-danger= flash[:alert]
     = render partial: 'shared/header'
+    = render 'layouts/flash'
     = yield
     = render partial: 'shared/footer'
     %script{src: "https://use.fontawesome.com/67602d7308.js"}

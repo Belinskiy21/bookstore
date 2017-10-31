@@ -30,10 +30,6 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    - if flash[:notice]
-      .alert.alert-success= flash[:notice]
-    - if flash[:alert]
-      .alert.alert-danger= flash[:alert]
     = render partial: 'shared/header'
     = render 'layouts/flash'
     = yield

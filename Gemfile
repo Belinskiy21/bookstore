@@ -66,6 +66,7 @@ group :test do
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'
   gem 'simplecov', :require => false
+  gem 'rails-controller-testing', '~> 1.0.2'
 end
 
 gem 'rails_12factor', group: :production

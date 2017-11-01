@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'visiting Catalog' do
+RSpec.feature 'visiting Catalog', type: :feature do
   before :each { visit books_path }
 
   describe 'body page content' do

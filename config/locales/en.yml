@@ -108,7 +108,8 @@ en:
   delivered: 'Deliverded'
   canceled: 'Canceled'
   catalog: 'Catalog'
-  privacy: 'Privacy' 
+  privacy: 'Privacy'
+  coupon_applied: 'Your coupon was applied!' 
 
 
   button:

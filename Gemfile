@@ -39,7 +39,6 @@ gem 'virtus'
 
 
 group :development do
-  gem 'pry'
   gem 'selenium-webdriver'
   gem 'foreman'
   gem 'dotenv-rails'
@@ -50,6 +49,7 @@ group :development do
   gem "spring-commands-rspec"
 end
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails'
   gem 'ffaker'
   gem 'factory_girl_rails'

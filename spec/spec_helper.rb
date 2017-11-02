@@ -5,6 +5,7 @@ require 'transactional_capybara/rspec'
 require 'factory_girl_rails'
 require "email_spec"
 require "email_spec/rspec"
+require 'aasm/rspec'
 Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
 

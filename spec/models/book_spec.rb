@@ -24,13 +24,13 @@ RSpec.describe Book, type: :model do
     it { should validate_presence_of :category_id }
   end
   context 'associations'
-  it { should have_many :author_books }
-  it { should have_many :authors }
-  it { should belong_to(:category) }
-  it { should have_many :order_items }
-  it { should have_many(:orders).through :order_items }
-  it { should have_many(:reviews).dependent :destroy }
-  it { should have_many(:images).dependent :destroy }
+    it { should have_many :author_books }
+    it { should have_many :authors }
+    it { should belong_to(:category) }
+    it { should have_many :order_items }
+    it { should have_many(:orders).through :order_items }
+    it { should have_many(:reviews).dependent :destroy }
+    it { should have_many(:images).dependent :destroy }
 
 
 end

@@ -19,5 +19,12 @@ FactoryGirl.define do
       book.category_id= (Category.find_by_name(evaluator.category_name) ||
         FactoryGirl.create(:category, type: evaluator.category_name)).id
     end
+
+    factory :book_with_review do
+      after(:create) do |book, _evaluator|
+        create_list(:review, 3, book_id: book.id)
+      end
+    end
+
   end
 end

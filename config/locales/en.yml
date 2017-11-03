@@ -93,7 +93,7 @@ en:
   password: 'Password'
   old_password: 'Old Password'
   new_password: 'New Password'
-  confirm_password: 'Confirm Password'
+  confirm_password: 'Confirm password'
   remove_account: 'Remove Account'
   please_rem_account: 'Please Remove My Account'
   i_understand: 'I understand that all data will be lost'
@@ -108,6 +108,8 @@ en:
   delivered: 'Deliverded'
   canceled: 'Canceled'
   catalog: 'Catalog'
+  privacy: 'Privacy'
+  coupon_applied: 'Your coupon was applied!' 
 
 
   button:

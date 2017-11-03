@@ -39,7 +39,6 @@ gem 'virtus'
 
 
 group :development do
-  gem 'pry'
   gem 'selenium-webdriver'
   gem 'foreman'
   gem 'dotenv-rails'
@@ -50,6 +49,7 @@ group :development do
   gem "spring-commands-rspec"
 end
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails'
   gem 'ffaker'
   gem 'factory_girl_rails'
@@ -59,11 +59,14 @@ end
 group :test do
   gem 'spring'
   gem 'capybara', '~> 2.13'
+  gem 'capybara-webkit'
   gem 'transactional_capybara', '0.2.0'
   gem 'database_cleaner'
   gem 'faker'
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'
+  gem 'simplecov', :require => false
+  gem 'rails-controller-testing', '~> 1.0.2'
 end
 
 gem 'rails_12factor', group: :production

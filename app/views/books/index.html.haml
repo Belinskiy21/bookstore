@@ -22,6 +22,7 @@
     .dropdown
       = render 'shared/filters'
   .mb-120
-    = render 'shared/book'
-    .text-center
-      = render 'shared/view_more'
+  = render 'shared/book'
+- if @books.size >= 8
+  = render 'shared/view_more'
+  %br

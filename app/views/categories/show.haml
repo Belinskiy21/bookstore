@@ -1,23 +1,26 @@
 %main.container
-  %h1.general-title-margin= @category.name
+  %h1.general-title-margin= t('catalog')
+  .text-center
+    = paginate @books
   .hidden-xs.clearfix
-    .dropdowns.pull-right
-      .dropdown.width-240
-        = paginate @books
     %ul.list-inline.pt-10.mb-25.mr-240
       %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('button.all')
+          %span.badge.general-badge= @book_count
+        = render 'shared/categories'
   .dropdowns.mb-25.visible-xs
     %p.lead.small.mb-10 Filter by category
     .dropdown
-      %a.dropdown-toggle.lead.small{href: "#{books_path}", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-        = t('button.all')
-        %i.fa.fa-angle-down.dropdown-icon.pull-right
-      %ul.dropdown-menu
-        = render 'shared/categories'
-    %p.lead.small.mb-10 Sort by
-    .dropdown
-      = render 'shared/filters'
+      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('button.all')
+          %span.badge.general-badge= @book_count
+      = render 'shared/categories'
   .mb-120
-    = render 'shared/book'
-    .text-center
-      = render 'shared/view_more'
+  %h2= @category.name
+  = render 'shared/book'
+- if @books.size >= 8
+  = render 'shared/view_more'
+  %br

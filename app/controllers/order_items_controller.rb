@@ -28,6 +28,7 @@ class OrderItemsController < ApplicationController
   def update
    @order_item = @order.order_items.find(params[:id])
    @order_item.update_attribute(:quantity, params[:quantity].to_i )
+   @order.save
    respond_to do |format|
      format.js
      redirect_to cart_path, notice: 'Cart was updated!'

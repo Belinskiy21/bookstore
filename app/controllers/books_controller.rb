@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by_id(params[:id])
-    redirect_to root_url, alert: 'No such book.' unless @book
+    redirect_to  action: :index, alert: 'No such book.' unless @book
     @order_item = OrderItem.new
     @reviews = @book.reviews.approved.decorate
   end

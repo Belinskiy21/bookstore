@@ -1,33 +1,124 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  my_account: 'My account'
+  title: 'Bookstore'
+  book: 'Book'
+  shop: 'Shop'
+  home: 'Home'
+  greeting: 'Welcome to our amazing Bookstore!'
+  text: 'We pore through hundreds of new books each month and select the five best we can find to share with our members.'
+  best_sellers: 'Best Sellers'
+  orders: 'Orders'
+  settings: 'Settings'
+  log_out: 'Log out'
+  sign_up: 'Sign Up'
+  or: 'Or'
+  log_in: 'Log In'
+  enter_email: 'Enter Email'
+  password: 'Password'
+  remember_me: 'Remember me'
+  description: 'Description'
+  published_at: 'Year of publication'
+  dimension: 'Dimension'
+  materials: 'Materials'
+  reviews: 'Reviews'
+  thanks_message: 'Thank you for review!'
+  smth_went_wrong: 'Something went wrong!'
+  newest_first: 'Newest first'
+  popular_first: 'Popular first'
+  price_descending: 'Price: Hight to low'
+  price_ascending: 'Price: Low to hight'
+  title_descending: 'Title: Z - A'
+  title_ascending: 'Title: A - Z'
+  cart: 'Cart'
+  cart_is_empty: 'Cart is empty!'
+  price: 'Price'
+  quantity: 'Quantity'
+  product: ' Product'
+  subtotal: 'SubTotal:'
+  coupon: 'Coupon:'
+  wrong_coupon: 'Wrong coupon!'
+  total: 'Total'
+  shipping: 'Shipping Price'
+  enter_coupon: 'Enter coupon:'
+  coupon_field_placeholder: 'Enter Your Coupon Code'
+  update_cart: 'Update cart'
+  order_summary: 'Order Summary'
+  checkout: 'Checkout'
+  billing_address: 'Billing Address'
+  all_filds_requeried: ' All fields are required!'
+  shipping_address: 'Shipping Address'
+  first_name: 'First Name'
+  last_name: 'Last Name'
+  address: 'Address'
+  city: 'City'
+  zip: 'Zip'
+  country: 'Country'
+  select_country: 'Select Country'
+  phone_placeholder: 'Phone placeholder'
+  use_billing: 'Use Billing'
+  save_and_continue: 'Save and continue'
+  pickup: 'Please, pick up Delivery type!'
+  credit_card: 'Credit Card'
+  shipping_method: 'Shipping Method'
+  max_days: 'Max days'
+  min_days: 'Min days'
+  cart_number: 'Please enter a valid credit card number'
+  cart_name: 'Allow only letters'
+  mm_yy: 'Mons can be from 01 to 12'
+  cart_number: 'Card number:'
+  cart_number_valid: 'Please enter a valid credit card number'
+  name_on_card: 'Name on Card'
+  mm_yy: 'MM / YY'
+  cvv: 'CVV'
+  tooltip: '3-digit security code, usually found on the back of your card. American Express cards has 4-digit code, located on the front'
+  shipments: 'Shipments'
+  edit: 'edit'
+  payment_information: 'Payment Information'
+  place_order: 'Place Order'
+  thanks: 'Thank You for your Order!'
+  has_been_sent_to: 'An order confirmation has been sent to '
+  back_to_store: 'Back to Store'
+  order: 'Order'
+  approved: 'Approved'
+  unprocessed: 'Unprocessed'
+  status: 'Status'
+  rejected: 'Rejected'
+  approve: 'Approve'
+  reject: 'Reject'
+  content: 'Content of review'
+  write: 'Write your review, please!'
+  email: 'Email'
+  save: 'Save'
+  password: 'Password'
+  old_password: 'Old Password'
+  new_password: 'New Password'
+  confirm_password: 'Confirm password'
+  remove_account: 'Remove Account'
+  please_rem_account: 'Please Remove My Account'
+  i_understand: 'I understand that all data will be lost'
+  my_orders: 'My orders'
+  sort_by: 'Sort by'
+  number: 'number'
+  complited_at: 'Complited at'
+  all: 'All'
+  in_progress: 'In progress'
+  processing: 'Processing'
+  in_delivery: 'In delivery'
+  delivered: 'Deliverded'
+  canceled: 'Canceled'
+  catalog: 'Catalog'
+  privacy: 'Privacy'
+  coupon_applied: 'Your coupon was applied!' 
+
+
+  button:
+    get_started: 'Get started'
+    l_in: 'Log In'
+    forgot_password: 'Forgot Password?'
+    all: 'All'
+    view_more: 'View More'
+    buy_now: 'Buy Now'
+    back_to_results: 'Back to results'
+    add_to_cart: 'Add to cart'
+    post: 'Post'

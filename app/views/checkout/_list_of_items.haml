@@ -1,0 +1,54 @@
+.visible-xs
+  - current_order.order_items.each_with_index do |item, i|
+    .general-cart-item.divider-lg
+      .general-img-wrap-table
+        = link_to book_path(item.book) do
+          = cl_image_tag img_of(item.book), alt: 'design-book', class: 'cart-img-shadow'
+      %p.title= item.book.title
+      %P.in-grey-600.fw-300= item.book.description.split('. ').first + '.'
+      %table.table
+        %tr
+          %td
+            %span.in-grey-600= t('price')
+          %td
+            %span.font-16.in-gold-500= number_to_currency item.book.price
+        %tr
+          %td.vertical-middle
+            %span.in-grey-600= t('quantity')
+          %td
+            %span= item.quantity
+        %tr
+          %td
+            %span.in-grey-600= t('total')
+          %td
+            %span.font-16.in-gold-500= number_to_currency item.total_price
+.hidden-xs.divider-lg.pt-20
+  %table.table.table-hover
+    %thead
+      %tr
+        %th
+          %span.in-grey-600= t('book')
+        %th.col-method
+        %th
+          %span.in-grey-600= t('price')
+        %th
+          %span.in-grey-600= t('quantity')
+        %th
+          %span.in-grey-600= t('total')
+    %tbody
+      - current_order.order_items.each do |item|
+        %tr
+          %td
+            .general-img-wrap-table
+              = link_to book_path(item.book) do
+                = cl_image_tag img_of(item.book), alt: 'design-book', class: 'cart-img-shadow pull-left'
+          %td
+            = link_to book_path(item.book), class: 'text-as-link' do
+              %p.title= item.book.title
+            %p.in-grey-600.fw-300= item.book.description.split('. ').first + '.'
+          %td
+            %span.font-16.in-gold-500= number_to_currency item.book.price
+          %td
+            %span.ml-30= item.quantity
+          %td
+            %span.font-16.in-gold-500= number_to_currency item.total_price

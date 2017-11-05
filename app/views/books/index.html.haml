@@ -1,0 +1,28 @@
+%main.container
+  %h1.general-title-margin= t('catalog')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      .dropdown.width-240
+        = render 'shared/filters'
+    %ul.list-inline.pt-10.mb-25.mr-240
+      %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('button.all')
+          %span.badge.general-badge= @book_count
+      = render 'shared/categories'
+  .dropdowns.mb-25.visible-xs
+    %p.lead.small.mb-10 Filter by category
+    .dropdown
+      %a.dropdown-toggle.lead.small{href: "#{books_path}", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+        = t('button.all')
+        %i.fa.fa-angle-down.dropdown-icon.pull-right
+      %ul.dropdown-menu
+        = render @categoriesall
+    %p.lead.small.mb-10
+    .dropdown
+      = render 'shared/filters'
+  .mb-120
+  = render 'shared/book'
+- if @books.size >= 8
+  = render 'shared/view_more'
+  %br

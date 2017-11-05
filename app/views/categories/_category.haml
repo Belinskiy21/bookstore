@@ -1,0 +1,4 @@
+%li.mr-35
+  = link_to books_path(category: category), class: "filter-link #{active_class(books_path(category: category))}" do
+    = category.name
+    %span.badge.general-badge= category.books.count

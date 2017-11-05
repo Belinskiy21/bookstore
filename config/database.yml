@@ -82,4 +82,4 @@ production:
   <<: *default
   database: bookstore_production
   username: bookstoreuser
-  password: bookstore
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

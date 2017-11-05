@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: rubygarage-bookstore
+  api_key: '353865991172472'
+  api_secret: dHebauB6mXLBA0q__uLD9HXcoVw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: rubygarage-bookstore
+  api_key: '353865991172472'
+  api_secret: dHebauB6mXLBA0q__uLD9HXcoVw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: rubygarage-bookstore
+  api_key: '353865991172472'
+  api_secret: dHebauB6mXLBA0q__uLD9HXcoVw
+  enhance_image_tag: true
+  static_image_support: false

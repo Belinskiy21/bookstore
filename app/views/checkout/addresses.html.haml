@@ -1,0 +1,38 @@
+%main.container.mb-res-50
+  %h1.general-title-margin= t'checkout'
+  = render 'steps'
+  = form_for @addresses, url: wizard_path, method: :put, class: 'res-mb-100' do |f|
+    .hidden-xs.hidden-sm
+      .row
+        .col-md-5
+          %h3.general-subtitle= t('billing_address')
+          %p.general-info-text= t('all_filds_requeried')
+        .col-md-5.col-md-offset-1
+          %h3.general-subtitle= t('shipping_address')
+    .row
+      .col-md-5.mb-40
+        .visible-xs.visible-sm
+          %h3.general-subtitle= t('billing_address')
+          %p.general-info-text= t('all_filds_requeried')
+        = f.fields_for @addresses.billing do |ff|
+          - bill_errors = @addresses.billing.errors
+          = render 'shared/address', ff: ff, errors: bill_errors
+          = f.hidden_field "[billing][order_id]", value: current_order.id
+      .col-md-5.col-md-offset-1.mb-60
+        .visible-xs.visible-sm
+          %h3.general-subtitle= t('shipping_address')
+        = f.fields_for @addresses.shipping do |ff|
+          - ship_errors = @addresses.shipping.errors
+          = render 'shared/address', ff: ff, errors: ship_errors
+          = f.hidden_field "[shipping][order_id]", value: current_order.id
+        .form-group.checkbox
+          %label.checkbox-label
+            = f.check_box :use_billing, class: 'checkbox-input', id: 'use_billing', hidden: true
+            %span.checkbox-icon
+              %i.fa.fa-check
+            %span.checkbox-text= t('use_billing')
+    .general-text-align.mb-60
+      %p.in-gold-500.font-18= t('summary')
+      %table.general-summary-table
+        = render 'shared/checkout_summary_numbers', current_order: current_order
+      = f.submit t('save_and_continue'), class: 'btn btn-default center-block mb-20'

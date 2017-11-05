@@ -1,0 +1,14 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('checkout')
+  = render 'steps'
+  %h3.general-subtitle= t('shipping_method')
+  = form_for current_order, url: wizard_path do |f|
+    .visible-xs
+      = render 'checkout/delivery-xs', f: f if false
+    .hidden-xs.mb-res-50
+      = render 'checkout/delivery-lg', f: f
+    .general-text-align.mb-60
+      %p.in-gold-500.font-18= t('summary')
+      %table.general-summary-table
+        = render 'shared/checkout_summary_numbers', current_order: current_order
+      = f.submit t('save_and_continue'), class: 'btn btn-default center-block mb-20'

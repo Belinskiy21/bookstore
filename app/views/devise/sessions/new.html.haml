@@ -1,0 +1,28 @@
+%main.container.general-main-wrap
+  .text-center
+    %h3.general-login-title= t('log_in')
+    %a.general-login-icon
+    = link_to   user_facebook_omniauth_authorize_path do
+      %i.fa.fa-facebook-official{:style => "font-size:30px"}
+      %p
+    %p.general-login-text= t('or')
+  = form_for(resource, as: resource_name, url: user_session_path, html: { class: 'general-form' }) do |f|
+    .form-group.mb-30
+      = f.label :email, t('enter_email'), class: 'control-label input-label'
+      = f.email_field :email, placeholder: 'Enter email', autofocus: true, class: 'form-control'
+    .form-group.mb-30
+      = f.label :password, t('password'), class: 'control-label input-label'
+      = f.password_field :password, placeholder: 'Password', class: 'form-control'
+      = link_to t('button.forgot_password'), new_user_password_path , class: 'help-block in-gold-500'
+    .form-group.checkbox.text-center.mb-30
+      %label.checkbox-label
+        = f.check_box :remember_me, hidden: true, class: 'checkbox-input'
+        %span.checkbox-icon
+          %i.fa.fa-check
+        %span.checkbox-text= t('remember_me')
+    .text-center
+      = hidden_field_tag :redirect_to, params[:redirect_to]
+      = f.submit t('button.l_in'), class: 'btn btn-default mb-20'
+  %p.general-sign-text.text-center
+    Dont have account?
+    = link_to t('sign_up'), new_user_registration_path, class: 'in-gold-500'

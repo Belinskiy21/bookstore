@@ -1,0 +1,26 @@
+%main.container
+  %h1.general-title-margin= t('catalog')
+  .text-center
+    = paginate @books
+  .hidden-xs.clearfix
+    %ul.list-inline.pt-10.mb-25.mr-240
+      %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('button.all')
+          %span.badge.general-badge= @book_count
+        = render 'shared/categories'
+  .dropdowns.mb-25.visible-xs
+    %p.lead.small.mb-10 Filter by category
+    .dropdown
+      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('button.all')
+          %span.badge.general-badge= @book_count
+      = render 'shared/categories'
+  .mb-120
+  %h2= @category.name
+  = render 'shared/book'
+- if @books.size >= 8
+  = render 'shared/view_more'
+  %br

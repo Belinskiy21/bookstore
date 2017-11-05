@@ -1,0 +1,104 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('cart')
+  - if @current_order.empty?
+    .font-18.in-grey-600.text-center.cart_empty= t('cart_is_empty')
+    .push-150
+  - else
+    .visible-xs
+      - @current_order.order_items.each do |item|
+        .general-cart-item.divider-lg-bottom
+          %button.close.general-cart-close{type: "button", 'aria-label': "Close"}
+            %span{'aria-hidden': "true"} &times;
+          .general-img-wrap-table
+            = cl_image_tag small_img_of item.book, class: 'cart-img-shadow'
+          %p.title= item.book.title
+          %table.table
+            %tr
+              %td
+                %span.in-grey-600= t('price')
+              %td
+                %span.font-16.in-gold-500= number_to_currency(item.book.price)
+            %tr
+              %td.vertical-middle
+                %span.in-grey-600= t('quantity')
+              %td
+                .input-group
+                  = link_to order_item_path( item, item: { quantity: item.quantity == 1 ? item.quantity : item.quantity - 1} ), remote: true, method: 'PUT', class: 'input-link' do
+                    %i.fa.fa-minus.line-heaght-40
+                  %input.form-control.quantity-input{type: "text", value: item.quantity, 'data-book-id': item.book.id, 'data-item-id': item.id}
+                  = link_to order_item_path(item, item: { quantity: item.quantity + 1} ), remote: true, method: 'PUT', class: 'input-link' do
+                    %i.fa.fa-plus.line-heaght-40
+            %tr
+              %td
+                %span.in-grey-600= t('subtotal')
+              %td
+                %span{class: 'font-16 in-gold-500' + item.id.to_s}= number_to_currency(item.book.price)
+  .hidden-xs
+    %table.table.table-hover
+      %tr.no-hover
+        %th.col-pic.pl-0
+          %span.in-grey-600= t('product')
+        %th.col-title
+        %th.col-price
+          %span.in-grey-600= t('price')
+        %th.col-quantity
+          %span.in-grey-600= t('quantity')
+        %th.col-total
+          %span.in-grey-600= t('subtotal')
+        %th.col-close
+      - @current_order.order_items.each do |item|
+        %tr
+          %td
+            .general-img-wrap-table
+              = cl_image_tag img_of item.book, class: 'cart-img-shadow'
+          %td
+            %p.title= item.book.title
+          %td
+            %span.font-16.in-gold-500= number_to_currency(item.book.price)
+          %td
+            .input-group
+              = link_to order_item_path(item, quantity: item.quantity == 1 ? item.quantity : item.quantity - 1 ), remote: true, method: 'PUT', class: 'input-link' do
+                %i.fa.fa-minus.line-height-40
+              %input.form-control.quantity-input{type: "text", value: item.quantity}
+              = link_to order_item_path(item, quantity: item.quantity + 1 ), remote: true, method: 'PUT', class: 'input-link' do
+                %i.fa.fa-plus.line-height-40
+            %td
+              %span{class: 'font-16 in-gold-500' + item.id.to_s}= number_to_currency(item.book.price)
+            %td
+              = form_for item, method: :delete do |form|
+                = form.button class: 'close general-cart-close', 'aria-label': 'Close' do
+                  %span{'aria-hidden': "true"} &times;
+    .general-order-wrap
+      .row
+        .col-sm-4
+          .input-group.general-input-group
+            %label.input-label= t('enter_coupon')
+            = form_tag cart_path(:order_id), method: :patch do
+              = text_field_tag :coupon_code, nil, class: 'form-control mb-30', placeholder: t('coupon_field_placeholder')
+              %div
+                = submit_tag t('update_cart'), class: 'btn btn-primary mb-15.res-block'
+        .col-sm-8
+          .res-mr-200.text-center.general-text-right
+            %p.in-gold-500.font-18= t('order_summary')
+            %table.general-summary-table.general-summary-table-right.general-text-right
+              %tr
+                %td
+                  %p.font-16= t('subtotal')
+                %td
+                  %p.font-16l= number_to_currency(@current_order.subtotal)
+              %tr
+                %td
+                  %p.font-16= t('coupon')
+                %td
+                  %p.font-16= number_to_currency(@current_order.discount_sum)
+              %tr
+                %td
+                  %strong.font-18= t('total')
+                %td
+                  %strong.font-18= number_to_currency(@current_order.total)
+            = link_to t('checkout'), user_signed_in? ? checkout_index_path : new_user_session_path, class: 'btn btn-default mb-20 visible-xs-inline-block'
+.text-center
+  - if user_signed_in?
+    = link_to t('checkout'), checkout_index_path , class: 'btn btn-default mb-20'
+  - else
+    = link_to t('checkout'), new_user_session_path(redirect_to: request.path), class: 'btn btn-default mb-20'

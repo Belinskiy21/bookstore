@@ -28,7 +28,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include Features::SessionHelpers, type: :feature
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include DeviseRequestSpecHelpers, type: :feature
   config.extend ControllerMacros, :type => :controller
+  config.include WaitForAjax, type: :feature
 end
 
 Shoulda::Matchers.configure do |config|
